@@ -36,7 +36,7 @@ class Cat(
 class Penguin(
     species: String,
 //    private val wingCount: Int = 2
-) : Animal(species, 2) {
+) : Animal(species, 2), Flyable, Swimable {
 
     val wingCount: Int = 2
 
@@ -46,4 +46,9 @@ class Penguin(
 
     override val legCount: Int
         get() = super.legCount + this.wingCount
+
+    override fun act() {
+        super<Swimable>.act()
+        super<Flyable>.act()
+    }
 }
